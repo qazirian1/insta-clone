@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+  
+    <ion-title>{{userDetail.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row class="profileinsta-header ion-align-items-center">
+    <ion-col size="auto">
+      <ion-avatar class="avatar-lg has-update has-status">
+        <img [src]="userDetail.image" alt="">
+      </ion-avatar>
+    </ion-col>
+    <ion-col>
+      <ion-row class="profileinsta-stats">
+        <ion-col>
+          <div class="stats-number">{{userDetail.posts}}</div>
+          <div class="stats-label">Posts</div>
+        </ion-col>
+        <ion-col>
+          <div class="stats-number">{{userDetail.followers}}</div>
+          <div class="stats-label">Followers</div>
+        </ion-col>
+        <ion-col>
+          <div class="stats-number">{{userDetail.followings}}</div>
+          <div class="stats-label">Following</div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <div class="ion-padding profileinsta-info">
+    <strong>{{userDetail.name}}</strong>
+  </div>
+
+  <div class="ion-padding">
+    
+   
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" fill="outline" color="dark" size="small">
+          Following
+        </ion-button>
+      </ion-col>
+       <ion-col size="6">
+          <ion-button expand="block" fill="outline" color="dark" size="small">
+          Message
+        </ion-button>
+       </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-segment value="active">
+    <ion-segment-button value="active">
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="images-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="post-grid">
+    <ion-row>
+      <ion-col size="4" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]">
+        <div class="post-item bg-image" [style.backgroundImage]="'url(assets/images/img_' + (i % 4 + 1) + '.png)'"></div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

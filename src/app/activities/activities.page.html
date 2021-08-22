@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar class="insta-act-header">
+    <!-- <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-title class="insta-logo" >
+      Instagram
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="paper-plane"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment scrollable class="status-wrapper">
+
+    <ion-segment-button class="status-item own-status">
+      <ion-avatar>
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>Your story</ion-label>
+      <ion-icon name="add" class="plus-icon"></ion-icon>
+    </ion-segment-button>
+
+    <ion-segment-button *ngFor="let status of usersList" class="status-item other-status">
+        <ion-avatar>
+          <img [src]="status.picture.large">
+        </ion-avatar>
+        <ion-label>{{status.name.first}}</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <ion-card class="feed-card" *ngFor="let feed of postList; let i = index;" >
+      <ion-card-content class="feed-user-wrapper">
+        <div class="ion-align-items-center user-image-wrapper" (click)="showprofile(feed,i)">
+          <img [src]="feed.userImage">
+        </div>
+        <div class="user-details">
+          <p class="user-name">{{feed.userName}}</p>
+          <p class="user-place">{{feed.userPlace}}</p>
+        </div>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon name="more"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-card-content>
+      <div class="feed-slides-wrapper">
+
+      
+        <div class="feeds"  (click)="showpost(feed,i)">
+          <img [src]="feed.image" style="width:100%;height: 100%;" />
+        </div>
+         <br>
+        <div class="feed-btn-wrapper">
+          <ion-buttons class="ion-float-left">
+            <ion-button>
+             <ion-icon name="heart-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+              <ion-icon name="chatbubbles"></ion-icon>
+            </ion-button>
+            <ion-button (click)="sharepost(feed,i)">
+              <ion-icon name="paper-plane"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-buttons class="ion-float-right">
+            <ion-button>
+              <ion-icon name="bookmark"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </div>
+      <ion-card-content class="feed-details-container">
+        <p> <strong>{{feed.likes}} likes</strong> </p>
+        <p class="user-given-details">
+          <ion-avatar>
+            <img [src]="feed.userImage">
+          </ion-avatar>
+          <strong class="user-name">{{feed.userName}} </strong>
+          <span class="feed-text">{{feed.feedText}}</span>
+          <span class="grey-text"> more</span>
+        </p>
+        <p class="all-comments" (click)="viewAllComments(feed,i)"> <span class="grey-text">View All Comments</span></p>
+        <p class="add-comments"> 
+          <ion-avatar>
+            <img [src]="feed.userImage">
+          </ion-avatar>
+          <span class="grey-text" (click)="addComment(feed,i)">Add a comment</span></p><br>
+        <p class="post-time"> <span class="grey-text">{{feed.time}}</span></p>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+<ion-footer *ngIf="showcommentbox==true">
+  <ion-card class="addComment">
+    <ion-card-content class="add-user-wrapper">
+      <div class="ion-align-items-center user-image-wrapper">
+        <img [src]="comment.image">
+      </div>
+      <div class="user-details">
+        <p class="user-name"> <ion-input placeholder="Add a comment" [(ngModel)]="comment.text"  type="text"></ion-input></p>
+      </div>
+       <ion-buttons >
+          <ion-button slot="end" (click)="submitComment()">
+           Post
+          </ion-button>
+        </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+</ion-footer>

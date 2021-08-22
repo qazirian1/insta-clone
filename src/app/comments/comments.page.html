@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div class="message_div" *ngFor="let comment of allComments.comments; let i = index;">
+      <ul>
+        <li>
+          <div class="message_pic">
+            <img [src]="comment.userimage">
+          </div>
+          <div class="message_detail">
+            <p><b>{{comment.name}}</b> {{comment.text}}</p>
+          </div>
+          <div class="clear"></div>
+        </li>
+      </ul>
+      <div class="timeReply">
+        <span class="time">10 h</span>
+        <span class="reply">Reply</span>
+      </div>
+       <ul class="subcomments">
+        <li>
+          <div class="message_pics">
+            <img [src]="comment.userimage">
+          </div>
+          <div class="message_detail">
+            <p><b>{{comment.name}}</b> {{comment.text}}</p>
+          </div>
+          <div class="clear"></div>
+        </li>
+      </ul>
+       <div class="timeReply sub">
+        <span class="time">10 h</span>
+        <span class="reply">Reply</span>
+      </div>
+    </div>
+    <div class="msg-comment" *ngIf="allComments.comments.length==0">No Comment</div>
+</ion-content>

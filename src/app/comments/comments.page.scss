@@ -1,0 +1,143 @@
+.home_background{
+    --background: #f7f7f7;
+  }
+  ion-header{
+  	 --background: #fff !important;
+  }
+.message_div{
+    width:100%;
+	margin: 0px auto;
+	margin-top: 5%;
+}
+.message_div ul{
+    width:100%;
+    margin:0px;
+    padding:0px;
+}
+.message_div ul li{
+    width:100%;
+    list-style:none;
+    margin-bottom:10px;
+    padding:15px;
+    background: #fff;
+}
+.message_pic{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #a5a5a5;
+    float: left;
+    position: relative;
+}
+.message_pic img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit: cover;
+    object-position: center;
+}
+.message_not{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#0e76bc;
+    color:#fff;
+    text-align:center;
+    position:absolute;
+    right:0px;
+    top:0px;
+    padding: 3px;
+    font-size: 10px;
+}
+.message_detail{
+    float: left;
+    width: calc(100% - 55px);
+    padding-left: 11px;
+    padding-top: 6px;
+}
+.message_detail h4{
+    margin:0px;color:#162d38;  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:16px;
+    padding-bottom:3px;}
+.message_detail h6{
+    margin:0px;color: #a5a5a5; 
+    font-weight: 300;
+    padding:0px;
+    font-size: 10px;
+    padding-bottom: 3px;}
+.message_detail p{
+    margin:0px;
+    color:#767676;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+.msg-comment{
+    width: 100%;
+    font-style: italic;
+    font-size: 14px;
+    color:#444;
+    margin-top: 20%;
+    text-align: center;
+}
+.timeReply{
+    width: 100%;
+    font-size: 11px;
+    font-weight: 500;
+    color: #a09d9d;
+    .time{
+        width: 16%;
+        float: left;
+        margin-left: 4%;
+    }
+    .reply{
+        width: 30%;
+        float:left;
+        margin-left: 0%;
+    }
+}
+.timeReply{
+    width: 100%;
+    font-size: 11px;
+    font-weight: 500;
+    color: #a09d9d;
+    margin-top: 4%;
+    .time{
+        width: 10%;
+        float: left;
+        margin-left: 4%;
+    }
+    .reply{
+        width: 30%;
+        float:left;
+        margin-left: 0%;
+    }
+}
+.subcomments{
+    margin-left: 10% !important;
+    margin-top:7% !important;
+    li{
+        .message_pics{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #a5a5a5;
+            float: left;
+            position: relative;
+        }
+        .message_pics img{
+            width:100%;
+            height:100%;
+            border-radius:50%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+.sub{
+   margin-left: 24% !important;
+}
